@@ -5,8 +5,8 @@ var UserSchema = new mongoose.Schema({
 	sex: Number,
 	birth: Date,
 	email: String,
-	password: String
+	password: String,
+    password_digest: String
 });
-
 
 mongoose.model('User', UserSchema);

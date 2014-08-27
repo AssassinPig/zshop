@@ -1,6 +1,6 @@
 var settings = require('../settings');
 var mongoose = require('mongoose');
-console.log(settings);
+//console.log(settings.db);
 mongoose.connect(settings.db, function (err) {
     if (err) {
         console.error('connect to %s error: ', settings.db, err.message);

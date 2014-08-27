@@ -1,0 +1,31 @@
+<% layout('layout') -%>
+<h1>edit</h1>
+<form action="/user/<%= user.objectId%>/update/" method="post">
+    <lable>name</lable>
+    <input type="text" name="name"></input>
+    <br>
+
+    <lable>sex</lable>
+    <input type="radio" name="sex" value="0">male</input>
+    <input type="radio" name="sex" value="1">female</input>
+    <input type="radio" name="sex" value="2">secret</input>
+    <br>
+
+    <lable>brith</lable>
+    <input type="date" name="brith"></input>
+    <br>
+
+    <lable>email</lable>
+    <input type="email" name="email"></input>
+    <br>
+
+    <lable>password</lable>
+    <input type="password" name="password"></input>
+    <br>
+
+    <lable>password_confirmation</lable>
+    <input type="password" name="password_confirmation"></input>
+    <br>
+
+    <input type="submit"></input>
+</form>

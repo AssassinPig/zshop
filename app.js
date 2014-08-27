@@ -5,6 +5,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var session = require('express-session');
+var MongoStore = require('connect-mongo')(session);
+var settings = require('./settings');
+var flash = require('connect-flash');
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
@@ -12,7 +17,9 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+app.set('view engine', 'html');
+app.engine('html', require('ejs-mate'));
+app.locals._layoutFile = 'layout.html';
 
 app.use(favicon());
 app.use(logger('dev'));
@@ -20,6 +27,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+    key: 'sid',
+    secret: settings.cookieSecret,
+    cookie: { maxAge: 1000 * 60 * 60 * 24 * 30, secure: true },
+    store: new MongoStore({
+        db: settings.db_name
+    }),
+    resave: true,
+    saveUninitialized: true
+}));
+app.use(flash());
 
 app.use('/', routes);
 app.use('/users', users);

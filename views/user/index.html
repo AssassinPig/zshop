@@ -1,0 +1,8 @@
+<% layout('layout') -%>
+<h1>index users</h1>
+
+<% for (var i=0; i<users.length; ++i) { %>
+    <% var u=users[i] %>
+    <h3><%= u._id %></h3>
+    <h3><%= u.name %></h3>
+<% }%>

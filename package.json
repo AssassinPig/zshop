@@ -13,6 +13,10 @@
     "body-parser": "~1.0.0",
     "debug": "~0.7.4",
     "ejs": "~0.8.5",
-    "mongoose": "3.8.14"
+    "ejs-mate": "2.0.0",
+    "mongoose": "3.8.14",
+    "connect-mongo": "0.4.1",
+    "connect-flash": "0.1.1",
+    "express-session":"1.7.6"
   }
 }
