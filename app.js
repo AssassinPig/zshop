@@ -40,7 +40,7 @@ app.use(session({
 app.use(flash());
 
 app.use('/', routes);
-app.use('/admin', users);
+app.use('/admin', admin);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
